@@ -1,0 +1,21 @@
+.container h1 {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #605D5D;
+}
+
+.dropdown-menu {
+    min-width: 85px;
+}
+
+.text-left {
+    margin-top: 12px;
+}
+
+.text-left a {
+    text-decoration: none;
+    cursor: pointer;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 2px solid #2e6da4;
+}
