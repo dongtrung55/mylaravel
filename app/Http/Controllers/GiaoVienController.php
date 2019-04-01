@@ -26,6 +26,7 @@ class GiaoVienController extends Controller
     //do_edit gv
     public function do_add(Request $request)
     {
+        $gv = new GiaoVien();
         $name = $request->get("name");
         $birthDay = $request->get("birthDay");
         $address = $request->get("address");
@@ -34,7 +35,7 @@ class GiaoVienController extends Controller
         $luongPhat = $request->get("luongPhat");
         $luongLinhThuc = $luongCung + $luongThuong - $luongPhat;
 
-        DB::table("tblcbgv")->insert(array("name" => $name, "birthDay" => $birthDay, "address" => $address, "luongCung" => $luongCung, "luongThuong" => $luongThuong, "luongThuong" => $luongThuong, "luongPhat" => $luongPhat, "luongLinhThuc" => $luongLinhThuc));
+        $gv->insert(array("name" => $name, "birthDay" => $birthDay, "address" => $address, "luongCung" => $luongCung, "luongThuong" => $luongThuong, "luongThuong" => $luongThuong, "luongPhat" => $luongPhat, "luongLinhThuc" => $luongLinhThuc));
 
         //goi view,truyen du lieu ra view
         return redirect(url(''));
@@ -68,8 +69,9 @@ class GiaoVienController extends Controller
 
     public function delete(Request $request, $id)
     {
+        $gv = new GiaoVien();
         //lay mot ban ghi tuong ung truyen vao
-        DB::table("tblcbgv")->where("id", $id)->delete();
+        $gv->where("id", $id)->delete();
         //goi view,truyen du lieu ra view
         return redirect(url(''));
     }
